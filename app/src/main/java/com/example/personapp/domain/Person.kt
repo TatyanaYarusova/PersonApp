@@ -5,5 +5,6 @@ data class Person(
     val name: String,
     val img: String,
     val address: String,
-    val phone: String
+    val phone: String,
+    val email: String
 )
