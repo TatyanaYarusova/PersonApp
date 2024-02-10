@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 data class PictureDto(
     @SerializedName("large")
     @Expose
-   val large: String? = null,
+    val large: String? = null,
 
     @SerializedName("medium")
     @Expose

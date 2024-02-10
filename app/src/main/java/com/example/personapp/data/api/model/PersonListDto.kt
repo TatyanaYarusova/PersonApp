@@ -4,7 +4,7 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class PersonListDto(
-    @SerializedName("persons")
+    @SerializedName("results")
     @Expose
     val persons :List<PersonDto>
 )
