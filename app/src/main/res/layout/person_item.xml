@@ -4,58 +4,86 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="8dp"
-    android:layout_marginTop="4dp"
-    android:layout_marginEnd="8dp"
-    android:layout_marginBottom="4dp"
-    app:cardCornerRadius="4dp"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
     app:cardElevation="4dp"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+
+    android:background="@color/background_card">
+<!--    android:layout_marginStart="8dp"-->
+<!--    android:layout_marginTop="4dp"-->
+<!--    android:layout_marginEnd="8dp"-->
+<!--    android:layout_marginBottom="4dp"-->
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="@color/background_card"
         android:padding="16dp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/imgPerson"
-            android:layout_width="339dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            tools:srcCompat="@tools:sample/avatars"
+            app:civ_border_width="2dp" />
+<!--        app:civ_border_color="#FF000000"-->
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_marginStart="20dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/nameText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/name" />
+                android:layout_weight="1"
+                android:paddingTop="2dp"
+                android:paddingBottom="10dp"
+                android:text="@string/name"
+                android:textSize="14sp"
+                android:textStyle="bold|italic"
+                android:textColor="@color/text_color"/>
 
             <TextView
                 android:id="@+id/addressText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/address" />
+                android:paddingBottom="10dp"
+                android:layout_weight="1"
+                android:text="@string/address"
+                android:textSize="14sp"
+                android:textStyle="bold|italic"
+                android:textColor="@color/text_color"/>
 
             <TextView
                 android:id="@+id/emailText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/email" />
+                android:paddingBottom="10dp"
+                android:layout_weight="1"
+                android:text="@string/email"
+                android:textSize="14sp"
+                android:textStyle="bold|italic"
+                android:textColor="@color/text_color"/>
 
             <TextView
                 android:id="@+id/phoneText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/phone" />
-
-
+                android:paddingBottom="10dp"
+                android:layout_weight="1"
+                android:text="@string/phone"
+                android:textSize="14sp"
+                android:textStyle="bold|italic"
+                android:textColor="@color/text_color"/>
         </LinearLayout>
     </LinearLayout>
 
