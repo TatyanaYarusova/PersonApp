@@ -11,7 +11,7 @@ class PersonMapper {
     fun mapDtoToDbModel(dto: PersonDto) = PersonDbModel(
         id = id++,
         name = "${dto.name.title} ${dto.name.first} ${dto.name.last}",
-        img = dto.picture.medium!!,
+        img = dto.picture.large!!,
         address ="${dto.location.street.number.toString()} ${dto.location.street.name}",
         phone = dto.phone!!,
         email = dto.email!!

@@ -1,7 +1,6 @@
 package com.example.personapp.data
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asFlow
 import androidx.lifecycle.asLiveData
@@ -10,8 +9,9 @@ import com.example.personapp.data.db.DataBase
 import com.example.personapp.data.mapper.PersonMapper
 import com.example.personapp.domain.Person
 import com.example.personapp.domain.PersonListRepository
-import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.withContext
 
 class PersonListRepositoryImpl(application: Application): PersonListRepository {
 
@@ -38,10 +38,18 @@ class PersonListRepositoryImpl(application: Application): PersonListRepository {
 
 
     override suspend fun loadDataUseCase() {
-        val personInfoList = apiService.getPersonInfoList()
-        val dbModelList = personInfoList.persons.map {
-            mapper.mapDtoToDbModel(it)
+        withContext(Dispatchers.IO) {
+            if (personDao.getCountPerson() == 0) {
+                try {
+                    val personInfoList = apiService.getPersonInfoList()
+                    val dbModelList = personInfoList.persons.map {
+                        mapper.mapDtoToDbModel(it)
+                    }
+                    personDao.insertPersonList(dbModelList)
+                } catch (e: Exception) {
+                    TODO("Not yet implemented")
+                }
+            }
         }
-        personDao.insertPersonList(dbModelList)
     }
 }

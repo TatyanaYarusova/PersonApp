@@ -30,8 +30,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
         jvmTarget = "1.8"
@@ -76,11 +76,14 @@ dependencies {
     implementation ("com.squareup.picasso:picasso:2.71828")
 
 //    implementation("androidx.appcompat:appcompat:1.6.1")
-//    implementation("com.google.android.material:material:1.11.0")
+    implementation("com.google.android.material:material:1.11.0")
 
 //    implementation("androidx.room:room-common:2.6.1")
 
     implementation ("androidx.work:work-runtime-ktx:2.9.0")
+
+    //Circle image
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
