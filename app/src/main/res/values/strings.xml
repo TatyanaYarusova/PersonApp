@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">PersonApp</string>
-    <string name="name">ФИО:</string>
-    <string name="address">Адрес:</string>
-    <string name="email">Почта:</string>
-    <string name="phone">Телефон:</string>
+    <string name="name">ФИО: %s</string>
+    <string name="address">Адрес: %s</string>
+    <string name="email">Почта: %s</string>
+    <string name="phone">Телефон: %s</string>
     <string name="returnButtonText">Вернуться на главный экран</string>
 </resources>

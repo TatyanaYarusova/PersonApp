@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.personapp.R
+import com.example.personapp.data.db.PersonDbModel
 import com.example.personapp.databinding.ActivityMainBinding
 import com.example.personapp.presentation.PersonViewModel
 import com.example.personapp.presentation.adapters.PersonAdapter
@@ -20,6 +21,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         val adapter = PersonAdapter(this)
+        adapter.onPersonClickListener = object : PersonAdapter.OnPersonClickListener {
+            override fun onPersonClick(person: PersonDbModel){
+                Log.d("Test_Click", person.toString())
+            }
+        }
         binding.rvPersonList.adapter = adapter
         viewModel = ViewModelProvider(this)[PersonViewModel::class.java]
         viewModel.personList.observe(this, Observer {
