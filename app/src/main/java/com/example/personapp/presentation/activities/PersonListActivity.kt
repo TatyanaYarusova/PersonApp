@@ -1,21 +1,20 @@
 package com.example.personapp.presentation.activities
 
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.personapp.R
 import com.example.personapp.data.db.PersonDbModel
-import com.example.personapp.databinding.ActivityMainBinding
+import com.example.personapp.databinding.ActivityPersonListBinding
 import com.example.personapp.presentation.PersonViewModel
 import com.example.personapp.presentation.adapters.PersonAdapter
 
-class MainActivity : AppCompatActivity() {
+class PersonListActivity : AppCompatActivity() {
    private lateinit var viewModel: PersonViewModel
 
    private val binding by lazy {
-        ActivityMainBinding.inflate(layoutInflater)
+        ActivityPersonListBinding.inflate(layoutInflater)
    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,20 +22,17 @@ class MainActivity : AppCompatActivity() {
         val adapter = PersonAdapter(this)
         adapter.onPersonClickListener = object : PersonAdapter.OnPersonClickListener {
             override fun onPersonClick(person: PersonDbModel){
-                Log.d("Test_Click", person.toString())
+                val intent = PersonInfoActivity.newIntent(
+                    this@PersonListActivity,
+                    person.id)
+                startActivity(intent)
             }
         }
         binding.rvPersonList.adapter = adapter
         viewModel = ViewModelProvider(this)[PersonViewModel::class.java]
         viewModel.personList.observe(this, Observer {
             adapter.personList = it
-        //Log.d("TEST_ACTIVITY", it.toString())
         })
-//        viewModel.getPersonInfo(0).observe(this, Observer {
-//            Log.d("TEST_ACTIVITY", it.toString())
-//        })
-//        Log.d("TEST", viewModel.getPersonListUseCase.getPersonList().toString())
-
     }
 
 }

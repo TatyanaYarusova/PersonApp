@@ -32,7 +32,6 @@ class PersonAdapter(private val context: Context):
     override fun onBindViewHolder(holder: PersonViewHolder, position: Int) {
         val person = personList[position]
         with(holder.binding) {
-            context.resources.getString(R.string.name)
             Picasso.get().load(person.img).into(imgPerson)
             nameText.text = String.format(context.resources.getString(R.string.name), person.name)
             addressText.text = String.format(context.resources.getString(R.string.address),person.address)
