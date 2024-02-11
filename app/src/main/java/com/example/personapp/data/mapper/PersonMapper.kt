@@ -10,9 +10,9 @@ class PersonMapper {
 
     fun mapDtoToDbModel(dto: PersonDto) = PersonDbModel(
         id = id++,
-        name = dto.name.title + dto.name.first + dto.name.last,
+        name = "${dto.name.title} ${dto.name.first} ${dto.name.last}",
         img = dto.picture.medium!!,
-        address = dto.location.street.number.toString() + dto.location.street.name,
+        address ="${dto.location.street.number.toString()} ${dto.location.street.name}",
         phone = dto.phone!!,
         email = dto.email!!
     )
@@ -25,4 +25,6 @@ class PersonMapper {
         phone = db.phone,
         email = db.email
     )
+
+
 }

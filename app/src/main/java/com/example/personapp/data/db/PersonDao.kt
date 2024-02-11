@@ -1,20 +1,26 @@
 package com.example.personapp.data.db
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.personapp.data.api.model.PersonDto
+import com.example.personapp.data.api.model.PersonListDto
 import com.example.personapp.domain.Person
 
 @Dao
 interface PersonDao {
-    @Query("SELECT * FROM person_table ORDER BY id ASC")
-    fun getPersonList(): List<PersonDbModel>
+    @Query("SELECT * FROM person_table")
+    fun getPersonList(): LiveData<List<PersonDbModel>>
 
     @Query("SELECT * FROM person_table WHERE id == :ID LIMIT 1")
-    fun getPerson(ID: Int): Person
+    fun getPerson(ID: Int): LiveData<PersonDbModel>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertPersonList(personList: List<PersonDto> )
+    fun insertPersonList(personListDb: List<PersonDbModel> )
+
+
+    @Query("DELETE FROM person_table")
+    fun deletePersonList()
 }
