@@ -1,18 +1,16 @@
 package com.example.personapp.data.api
 
 import com.example.personapp.data.api.model.PersonListDto
-import io.reactivex.Single
-import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ApiService {
 
     @GET("https://randomuser.me/api/")
-    fun getPersonInfo(
+    suspend fun getPersonInfoList(
         @Query(QUERY_PARAM_RESULTS) countResults: Int = COUNT_RESULTS,
         @Query(QUERY_PARAM_INC) paramJson: String  = PARAM_JSON_INC
-    ): Single<PersonListDto>
+    ): PersonListDto
 
     companion object {
         private const val QUERY_PARAM_RESULTS = "results"
