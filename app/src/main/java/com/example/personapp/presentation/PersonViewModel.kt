@@ -3,9 +3,12 @@ package com.example.personapp.presentation
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import com.example.personapp.data.api.ApiFactory
 import com.example.personapp.data.db.DataBase
+import com.example.personapp.data.db.PersonDbModel
 import com.example.personapp.data.mapper.PersonMapper
+import com.example.personapp.domain.Person
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -17,6 +20,10 @@ class PersonViewModel(application: Application) : AndroidViewModel(application) 
 
 
     val personList = db.personDao().getPersonList()
+
+    fun getPersonInfo(ID: Int): LiveData<PersonDbModel>{
+        return db.personDao().getPerson(ID)
+    }
 
     init {
         loadData()

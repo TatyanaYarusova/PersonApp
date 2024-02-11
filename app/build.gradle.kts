@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id ("kotlin-kapt")
+    id ("kotlin-parcelize")
 
 }
 
@@ -55,6 +56,8 @@ dependencies {
 
     implementation ("io.reactivex.rxjava2:rxandroid:2.1.1")
     implementation ("io.reactivex.rxjava2:rxjava:2.2.19")
+
+    implementation ("com.squareup.picasso:picasso:2.71828")
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
