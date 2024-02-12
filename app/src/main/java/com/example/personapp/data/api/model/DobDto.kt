@@ -3,13 +3,8 @@ package com.example.personapp.data.api.model
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class NameDto(
-
-    @SerializedName("first")
+data class DobDto(
+    @SerializedName("date")
     @Expose
-    val first: String? = null,
-
-    @SerializedName("last")
-    @Expose
-    val last: String? = null
+    val date: String
 )

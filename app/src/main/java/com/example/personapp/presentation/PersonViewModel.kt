@@ -1,49 +1,31 @@
 package com.example.personapp.presentation
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import com.example.personapp.data.api.ApiFactory
-import com.example.personapp.data.db.DataBase
-import com.example.personapp.data.db.PersonDbModel
-import com.example.personapp.data.mapper.PersonMapper
-import com.example.personapp.domain.Person
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
-import io.reactivex.android.schedulers.AndroidSchedulers
+import androidx.lifecycle.viewModelScope
+import com.example.personapp.data.PersonListRepositoryImpl
+import com.example.personapp.domain.GetPersonListUseCase
+import com.example.personapp.domain.GetPersonUseCase
+import com.example.personapp.domain.LoadDataUseCase
+import kotlinx.coroutines.launch
+
 
 class PersonViewModel(application: Application) : AndroidViewModel(application) {
-    private val db = DataBase.getInstance(application)
-    private val compositeDisposable = CompositeDisposable()
-    private val mapper = PersonMapper()
 
+    private val repo = PersonListRepositoryImpl(application)
 
-    val personList = db.personDao().getPersonList()
+    private val getPersonListUseCase = GetPersonListUseCase(repo)
+    private val getPersonUseCase = GetPersonUseCase(repo)
+    private val loadDataUseCase = LoadDataUseCase(repo)
 
-    fun getPersonInfo(ID: Int): LiveData<PersonDbModel>{
-        return db.personDao().getPerson(ID)
-    }
+    val personList = getPersonListUseCase()
+
+    fun getPersonInfo(personId: Int) = getPersonUseCase(personId)
 
     init {
-        loadData()
+        viewModelScope.launch {
+            loadDataUseCase()
+        }
     }
 
-    private fun loadData() {
-        val disposable = ApiFactory.apiService.getPersonInfo()
-            .subscribeOn(Schedulers.io())
-//            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                db.personDao().insertPersonList(it.persons.map { mapper.mapDtoToDbModel(it) })
-                Log.d("TEST_OF_LOADING_DATA", "Success: ${it.persons}")
-            }, {
-                Log.d("TEST_OF_LOADING_DATA", "Failure: ${it.message}")
-            })
-        compositeDisposable.add(disposable)
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        compositeDisposable.dispose()
-    }
 }

@@ -6,5 +6,9 @@ import com.google.gson.annotations.SerializedName
 data class LocationDto(
     @SerializedName("street")
     @Expose
-    val street: StreetDto
+    val street: StreetDto,
+
+    @SerializedName("city")
+    @Expose
+    val city: String
 )

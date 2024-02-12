@@ -13,12 +13,14 @@ import com.example.personapp.domain.Person
 interface PersonDao {
     @Query("SELECT * FROM person_table")
     fun getPersonList(): LiveData<List<PersonDbModel>>
+    @Query("SELECT COUNT(*) FROM person_table")
+    fun getCountPerson(): Int
 
     @Query("SELECT * FROM person_table WHERE id == :ID LIMIT 1")
     fun getPerson(ID: Int): LiveData<PersonDbModel>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertPersonList(personListDb: List<PersonDbModel> )
+    suspend fun insertPersonList(personListDb: List<PersonDbModel> )
 
 
     @Query("DELETE FROM person_table")

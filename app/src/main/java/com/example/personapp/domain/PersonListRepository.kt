@@ -1,7 +1,11 @@
 package com.example.personapp.domain
 
-interface PersonListRepository {
-    fun getPersonList(): List<Person>
+import androidx.lifecycle.LiveData
 
-    fun getPerson(personId: Int): Person
+interface PersonListRepository {
+    fun getPersonList(): LiveData<List<Person>>
+
+    fun getPerson(personId: Int): LiveData<Person>
+
+    suspend fun loadDataUseCase()
 }
