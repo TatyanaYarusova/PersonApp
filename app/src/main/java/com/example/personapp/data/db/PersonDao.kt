@@ -23,6 +23,6 @@ interface PersonDao {
     suspend fun insertPersonList(personListDb: List<PersonDbModel> )
 
 
-    @Query("DELETE FROM person_table")
+    @Query("DELETE FROM person_table WHERE id != -1 ")
     fun deletePersonList()
 }

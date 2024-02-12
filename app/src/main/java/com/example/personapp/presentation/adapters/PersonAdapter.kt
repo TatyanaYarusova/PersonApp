@@ -15,6 +15,7 @@ class PersonAdapter(
 ): ListAdapter<Person, PersonViewHolder>(PersonDiffCallback){
 
     var onPersonClickListener: OnPersonClickListener?  = null
+    var onButtonClickListener: OnButtonClickListener?  = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonViewHolder {
         val binding = PersonItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return PersonViewHolder(binding)
@@ -34,9 +35,14 @@ class PersonAdapter(
         holder.itemView.setOnClickListener {
             onPersonClickListener?.onPersonClick(person)
         }
+
     }
 
     interface OnPersonClickListener {
         fun onPersonClick(person: Person)
+    }
+
+    interface OnButtonClickListener {
+        suspend fun onButtonClick()
     }
 }

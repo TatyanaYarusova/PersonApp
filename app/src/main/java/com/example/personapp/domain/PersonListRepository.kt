@@ -8,4 +8,6 @@ interface PersonListRepository {
     fun getPerson(personId: Int): LiveData<Person>
 
     suspend fun loadDataUseCase()
+
+    suspend fun reloadDataUseCase()
 }

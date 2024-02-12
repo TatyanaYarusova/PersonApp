@@ -24,15 +24,15 @@ class PersonMapper {
         email = dto.email!!
     )
 
-    fun mapDbToEntity(db: PersonDbModel) = Person(
-        id = db.id,
-        name = db.name,
-        img = db.img,
-        addressCity = db.addressCity,
-        addressStreet = db.addressStreet,
-        dob = convertTimestampToTime(db.dob),
-        phone = db.phone,
-        email = db.email
+    fun mapDbToEntity(db: PersonDbModel?) = Person(
+        id = db?.id ?: 0,
+        name = db?.name.orEmpty(),
+        img = db?.img.orEmpty(),
+        addressCity = db?.addressCity.orEmpty(),
+        addressStreet = db?.addressStreet.orEmpty(),
+        dob = convertTimestampToTime(db?.dob) ?: "",
+        phone = db?.phone.orEmpty(),
+        email = db?.email.orEmpty()
     )
 
     private fun convertTimestampToTime(timestamp: String?): String {
