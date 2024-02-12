@@ -26,7 +26,7 @@ class PersonAdapter(
         with(holder.binding) {
             Picasso.get().load(person.img).into(imgPerson)
             nameText.text = String.format(context.resources.getString(R.string.name), person.name)
-            addressText.text = String.format(context.resources.getString(R.string.address),person.address)
+            addressText.text = String.format(context.resources.getString(R.string.address),person.addressCity)
             emailText.text = String.format(context.resources.getString(R.string.email),person.email)
             phoneText.text = String.format(context.resources.getString(R.string.phone), person.phone)
         }

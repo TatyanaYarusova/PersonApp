@@ -18,7 +18,7 @@ interface ApiService {
 
 
         private const val COUNT_RESULTS = 10
-        private const val PARAM_JSON_INC = "name, picture, email, location, phone"
+        private const val PARAM_JSON_INC = "name, dob, picture, email, location, phone"
 
     }
 }

@@ -9,6 +9,10 @@ data class PersonDto(
     @Expose
     val name: NameDto,
 
+    @SerializedName("dob")
+    @Expose
+    val dob: DobDto,
+
     @SerializedName("location")
     @Expose
     val location: LocationDto,

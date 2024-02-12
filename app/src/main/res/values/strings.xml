@@ -4,5 +4,12 @@
     <string name="address">Адрес:\n%s</string>
     <string name="email">Почта:\n%s</string>
     <string name="phone">Телефон:\n%s</string>
+
+    <string name="name_label">ФИО:</string>
+    <string name="address_label">Адрес:</string>
+    <string name="email_label">Почта:</string>
+    <string name="phone_label">Телефон:</string>
+    <string name="dob_label">Дата рождения::</string>
+
     <string name="returnButtonText">Вернуться на главный экран</string>
 </resources>

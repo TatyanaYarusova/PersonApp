@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.personapp.R
 import com.example.personapp.databinding.ActivityPersonInfoBinding
@@ -29,15 +28,17 @@ class PersonInfoActivity: AppCompatActivity() {
         }
         val personId = intent.getIntExtra(EXTRA_FROM_ID, EXTRA_UNDEFINED_ID)
         viewModel = ViewModelProvider(this)[PersonViewModel::class.java]
-        viewModel.getPersonInfo(personId).observe(this, Observer {
+        viewModel.getPersonInfo(personId).observe(this) {
             with(binding) {
                 Picasso.get().load(it.img).into(imagePerson)
-                nameText.text = String.format(resources.getString(R.string.name), it.name)
-                addressText.text = String.format(resources.getString(R.string.address),it.address)
-                emailText.text = String.format(resources.getString(R.string.email),it.email)
-                phoneText.text = String.format(resources.getString(R.string.phone), it.phone)
+                nameText.text =  it.name
+                addressCityText.text = it.addressCity
+                addressStreetText.text = it.addressStreet
+                emailText.text = it.email
+                phoneText.text =  it.phone
+                dobText.text = it.dob
             }
-        })
+        }
 
     }
 
