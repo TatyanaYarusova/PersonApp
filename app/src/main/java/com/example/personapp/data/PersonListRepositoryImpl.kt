@@ -1,6 +1,7 @@
 package com.example.personapp.data
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asFlow
 import androidx.lifecycle.asLiveData
@@ -51,5 +52,11 @@ class PersonListRepositoryImpl(application: Application): PersonListRepository {
                 }
             }
         }
+    }
+
+    override suspend fun reloadDataUseCase() {
+        personDao.deletePersonList()
+        loadDataUseCase()
+
     }
 }
