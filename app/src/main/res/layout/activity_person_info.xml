@@ -137,7 +137,9 @@
                 android:paddingTop="10dp"
                 android:textColor="@color/text_color"
                 android:textSize="18sp"
-                android:textStyle="bold|italic" />
+                android:autoLink="email"
+                android:textStyle="bold|italic"
+                android:textColorLink="@color/text_color"/>
 
             <View
                 android:layout_width="match_parent"
@@ -163,6 +165,7 @@
                 android:textColor="@color/text_color"
                 android:textSize="18sp"
                 android:textStyle="bold|italic" />
+<!--                android:autoLink="phone"-->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"

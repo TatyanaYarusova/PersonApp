@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
 
 @Database(
     entities = [PersonDbModel::class],
-    version = 13,
+    version = 14,
     exportSchema = false
 )
 abstract class DataBase: RoomDatabase() {

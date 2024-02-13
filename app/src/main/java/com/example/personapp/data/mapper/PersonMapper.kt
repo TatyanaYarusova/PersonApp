@@ -21,7 +21,9 @@ class PersonMapper {
         addressStreet ="${dto.location.street.number.toString()} ${dto.location.street.name}",
         phone = dto.phone!!,
         dob = dto.dob.date,
-        email = dto.email!!
+        email = dto.email!!,
+        latitude = dto.location.coordinates.latitude,
+        longitud = dto.location.coordinates.longitud
     )
 
     fun mapDbToEntity(db: PersonDbModel?) = Person(
@@ -32,7 +34,9 @@ class PersonMapper {
         addressStreet = db?.addressStreet.orEmpty(),
         dob = convertTimestampToTime(db?.dob) ?: "",
         phone = db?.phone.orEmpty(),
-        email = db?.email.orEmpty()
+        email = db?.email.orEmpty(),
+        longitud = db?.longitud.orEmpty(),
+        latitude = db?.latitude.orEmpty()
     )
 
     private fun convertTimestampToTime(timestamp: String?): String {
