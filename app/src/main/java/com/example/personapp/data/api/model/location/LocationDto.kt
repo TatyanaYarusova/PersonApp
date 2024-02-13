@@ -10,5 +10,9 @@ data class LocationDto(
 
     @SerializedName("city")
     @Expose
-    val city: String
+    val city: String,
+
+    @SerializedName("coordinates")
+    @Expose
+    val coordinates: CoordinatesDto
 )
