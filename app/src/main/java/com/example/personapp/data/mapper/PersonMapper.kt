@@ -1,14 +1,11 @@
 package com.example.personapp.data.mapper
 
 import com.example.personapp.data.api.model.PersonDto
-import com.example.personapp.data.api.model.PersonListDto
 import com.example.personapp.data.db.PersonDbModel
 import com.example.personapp.domain.Person
 import java.sql.Date
-import java.sql.Timestamp
 import java.text.SimpleDateFormat
-import java.util.Locale
-import java.util.TimeZone
+
 
 class PersonMapper {
     var id = 0
@@ -17,7 +14,7 @@ class PersonMapper {
         id = id++,
         name = "${dto.name.first} ${dto.name.last}",
         img = dto.picture.large!!,
-        addressCity =dto.location.city.toString(),
+        addressCity =dto.location.city,
         addressStreet ="${dto.location.street.number.toString()} ${dto.location.street.name}",
         phone = dto.phone!!,
         dob = dto.dob.date,
@@ -45,7 +42,7 @@ class PersonMapper {
             val netDate = if (timestamp.isNullOrEmpty()) {
                 java.util.Date()
             } else {
-                val timestampLong = timestamp?.toLongOrNull() ?: 0L
+                val timestampLong = timestamp.toLongOrNull() ?: 0L
                 Date(timestampLong * 1000)
             }
             return sdf.format(netDate)

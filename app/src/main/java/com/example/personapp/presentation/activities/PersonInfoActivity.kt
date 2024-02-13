@@ -1,20 +1,17 @@
 package com.example.personapp.presentation.activities
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
-import com.example.personapp.R
 import com.example.personapp.databinding.ActivityPersonInfoBinding
 import com.example.personapp.domain.Person
 import com.example.personapp.presentation.PersonViewModel
 import com.squareup.picasso.Picasso
-import java.util.Locale
+
 
 
 class PersonInfoActivity: AppCompatActivity() {
