@@ -1,8 +1,5 @@
 package com.example.personapp.domain
 
-import com.google.gson.annotations.Expose
-import com.google.gson.annotations.SerializedName
-
 data class Person(
     val id: Int,
     val name: String,

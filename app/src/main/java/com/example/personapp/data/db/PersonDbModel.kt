@@ -1,11 +1,8 @@
 package com.example.personapp.data.db
 
-import android.provider.ContactsContract.CommonDataKinds.Email
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.google.gson.annotations.Expose
-import com.google.gson.annotations.SerializedName
-import javax.annotation.processing.Generated
+
 
 @Entity(tableName = "person_table")
 data class PersonDbModel(

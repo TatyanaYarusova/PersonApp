@@ -5,9 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.personapp.data.api.model.PersonDto
-import com.example.personapp.data.api.model.PersonListDto
-import com.example.personapp.domain.Person
+
 
 @Dao
 interface PersonDao {

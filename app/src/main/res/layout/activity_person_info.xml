@@ -59,7 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginBottom="8dp"
-                android:background="@color/background" />
+                android:background="@color/text_color" />
 
             <TextView
                 android:id="@+id/dobText1"
@@ -84,7 +84,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginBottom="8dp"
-                android:background="@color/background" />
+                android:background="@color/text_color" />
 
             <TextView
                 android:id="@+id/addressText1"
@@ -104,6 +104,11 @@
                 android:textColor="@color/text_color"
                 android:textSize="18sp"
                 android:textStyle="bold|italic" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/text_color" />
 
             <TextView
                 android:id="@+id/addressStreetText"
@@ -118,7 +123,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginBottom="8dp"
-                android:background="@color/background" />
+                android:background="@color/text_color" />
 
             <TextView
                 android:id="@+id/emailText1"
@@ -129,6 +134,7 @@
                 android:textColor="@color/text_color"
                 android:textSize="18sp"
                 android:textStyle="bold|italic" />
+
 
             <TextView
                 android:id="@+id/emailText"
@@ -145,7 +151,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginBottom="8dp"
-                android:background="@color/background" />
+                android:background="@color/text_color" />
 
             <TextView
                 android:id="@+id/phoneText1"
@@ -170,7 +176,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginBottom="8dp"
-                android:background="@color/background" />
+                android:background="@color/text_color" />
 
         </LinearLayout>
 

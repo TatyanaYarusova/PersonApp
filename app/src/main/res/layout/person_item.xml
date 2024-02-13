@@ -46,44 +46,60 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingTop="2dp"
-                android:paddingBottom="10dp"
                 android:text="@string/name"
                 android:textSize="14sp"
                 android:textStyle="bold|italic"
                 android:textColor="@color/text_color"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/text_color" />
 
             <TextView
                 android:id="@+id/addressText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
                 android:layout_weight="1"
                 android:text="@string/address"
                 android:textSize="14sp"
                 android:textStyle="bold|italic"
                 android:textColor="@color/text_color"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/text_color" />
 
             <TextView
                 android:id="@+id/emailText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
                 android:layout_weight="1"
                 android:text="@string/email"
                 android:textSize="14sp"
                 android:textStyle="bold|italic"
                 android:textColor="@color/text_color"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/text_color" />
 
             <TextView
                 android:id="@+id/phoneText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
                 android:layout_weight="1"
                 android:text="@string/phone"
                 android:textSize="14sp"
                 android:textStyle="bold|italic"
                 android:textColor="@color/text_color"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/text_color" />
         </LinearLayout>
     </LinearLayout>
 

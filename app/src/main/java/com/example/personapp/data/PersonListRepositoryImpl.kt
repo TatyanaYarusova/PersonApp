@@ -1,7 +1,6 @@
 package com.example.personapp.data
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asFlow
 import androidx.lifecycle.asLiveData
@@ -33,24 +32,21 @@ class PersonListRepositoryImpl(application: Application): PersonListRepository {
                 it.map {
                     mapper.mapDbToEntity(it)
                 }
-            }
-            .asLiveData()
+            }.asLiveData()
     }
 
 
     override suspend fun loadDataUseCase() {
         withContext(Dispatchers.IO) {
             if (personDao.getCountPerson() == 0) {
-                try {
-                    val personInfoList = apiService.getPersonInfoList()
-                    val dbModelList = personInfoList.persons.map {
-                        mapper.mapDtoToDbModel(it)
-                    }
-                    personDao.insertPersonList(dbModelList)
-                } catch (e: Exception) {
-                    TODO("Not yet implemented")
+
+                val personInfoList = apiService.getPersonInfoList()
+                val dbModelList = personInfoList.persons.map {
+                    mapper.mapDtoToDbModel(it)
                 }
+                personDao.insertPersonList(dbModelList)
             }
+
         }
     }
 
