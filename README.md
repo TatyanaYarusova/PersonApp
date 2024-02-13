@@ -12,10 +12,12 @@ Android-приложение, которое предоставляет инфо
 
 ## Внешний вид
 
-Главный экран:
+###Главный экран:
+<br>
 ![Img](https://github.com/TatyanaYarusova/PersonApp/assets/90791984/2fe0c25f-0660-42b5-ac44-5cc9fd937428)
 
-Второй экран:
+###Второй экран:
+<br>
 ![Img](https://github.com/TatyanaYarusova/PersonApp/assets/90791984/59bb5000-46a9-49eb-a163-1a95fec646d5)
 
 ## Используемые библиотеки
