@@ -34,15 +34,15 @@ class PersonInfoActivity: AppCompatActivity() {
         viewModel.getPersonInfo(personId).observe(this) {
             with(binding) {
                 Picasso.get().load(it.img).into(imagePerson)
-                nameText.text = it.name
+                nameInfoText.text = it.name
                 addressCityText.text = it.addressCity
                 addressStreetText.text = it.addressStreet
-                emailText.text = it.email
-                phoneText.text = it.phone
+                emailInfoText.text = it.email
+                phoneInfoText.text = it.phone
                 dobText.text = it.dob
             }
         }
-        binding.phoneText.setOnClickListener {
+        binding.phoneInfoText.setOnClickListener {
             goPhone()
         }
 
@@ -53,7 +53,7 @@ class PersonInfoActivity: AppCompatActivity() {
     }
 
     private fun goPhone(){
-        val phoneNumber = binding.phoneText.text.toString()
+        val phoneNumber = binding.phoneInfoText.text.toString()
         val intent = Intent(Intent.ACTION_DIAL)
         intent.data = Uri.parse("tel:$phoneNumber")
         startActivity(intent)

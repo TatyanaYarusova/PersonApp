@@ -81,4 +81,21 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    //Mockito
+    testImplementation("org.mockito:mockito-core:5.7.0")
+    testImplementation("org.mockito:mockito-inline:4.0.0")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:4.1.0")
+
+    //Kaspresso
+    androidTestImplementation ("com.kaspersky.android-components:kaspresso:1.5.2")
+
+    testImplementation ("android.arch.core:core-testing:1.1.1")
+    androidTestImplementation ("junit:junit:4.13.2")
+    androidTestImplementation ("androidx.test:runner:1.5.2")
+    androidTestImplementation ("androidx.test.espresso:espresso-core:3.5.1")
+    androidTestImplementation ("androidx.test:core-ktx:1.5.0")
+
+
+
 }
